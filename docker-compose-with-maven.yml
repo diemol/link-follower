@@ -29,5 +29,5 @@ services:
       - hub
     volumes:
       - ./.m2:/root/.m2
-    command: ["mvn", "clean", "test"]
+    command: ["./wait-for-grid.sh", "mvn", "clean", "test"]
 
