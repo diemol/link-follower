@@ -46,7 +46,7 @@ public class LinkFollowerTest {
 
     @Test(dataProvider = "urls")
     public void justFollowingLinksTest(String url, String browserName) throws InterruptedException {
-        int pagesToNavigate = 10;
+        int pagesToNavigate = 3;
         int navigatedPages = 0;
         List<String> visitedUrls = new ArrayList<>();
         getWebDriver().get(url);
