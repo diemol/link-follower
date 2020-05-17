@@ -1,9 +1,12 @@
+# How to run this?  docker-compose up --abort-on-container-exit --build
 version: '2'
 services:
   firefox:
     image: selenium/node-firefox-debug
     volumes:
       - /dev/shm:/dev/shm
+    ports:
+      - "6901:5900"
     depends_on:
       - hub
     environment:
@@ -12,6 +15,8 @@ services:
     image: selenium/node-chrome-debug
     volumes:
       - /dev/shm:/dev/shm
+    ports:
+      - "6900:5900"
     depends_on:
       - hub
     environment:
