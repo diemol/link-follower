@@ -23,8 +23,6 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 @Execution(ExecutionMode.CONCURRENT)
 public class LinkFollowerTest {
     private WebDriver webDriver;
-    private String sauceUserName = System.getenv("SAUCE_USERNAME");
-    private String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
 
     static Stream<Arguments> browsersAndUrlsProvider() {
         return Stream.of(
@@ -44,8 +42,7 @@ public class LinkFollowerTest {
     public void justFollowingLinksTest(String browserName, String url) throws InterruptedException, MalformedURLException {
         MutableCapabilities capabilities = new MutableCapabilities();
         capabilities.setCapability(CapabilityType.BROWSER_NAME, browserName);
-        String gridUrl = "https://" + sauceUserName + ":" + sauceAccessKey + "@ondemand.saucelabs.com/wd/hub";
-//        String gridUrl = "http://hub:4444/wd/hub";
+        String gridUrl = "http://hub:4444/wd/hub";
         webDriver = new RemoteWebDriver(new URL(gridUrl), capabilities);
 
         int pagesToNavigate = 5;
